@@ -478,11 +478,11 @@ int refresh(int signum)
 
 	key keyinput = mcp3008();
 	
-	if(keyinput.clk==1) drop();
-	if(keyinput.x==1023) move_block(LEFT);
-	else if(keyinput.x==1) move_block(RIGHT);
-	if(keyinput.y==1) move_block(DOWN);
-	else if(keyinput.y==1023) move_block(ROTATE);
+	if(keyinput.clk<10) drop();
+	if(keyinput.x>900) move_block(LEFT);
+	else if(keyinput.x<10) move_block(RIGHT);
+	if(keyinput.y<10) move_block(DOWN);
+	else if(keyinput.y>900) move_block(ROTATE);
 
 /*
 	switch(ch=getch())
